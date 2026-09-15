@@ -1,0 +1,65 @@
+# --- build output ---------------------------------------------------------
+# Regenerate with:
+#   cmake -B build -S . -G Ninja && cmake --build build
+# (or inside the container: ./scripts/dev.sh bash -c "cmake -B build -S . -G Ninja && cmake --build build")
+build/
+cmake-build-*/
+
+# CMake artifacts, in case anyone ever configures in-source
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+install_manifest.txt
+compile_commands.json
+.ninja_deps
+.ninja_log
+*.ninja
+
+# --- compiled objects & binaries ------------------------------------------
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.exe
+
+# --- generated profiling data ---------------------------------------------
+# .hpprof files are raw sample dumps written by the profiler itself.
+# Regenerate by running any profiled target, e.g.:
+#   ./build/test_sampler
+*.hpprof
+*.prof
+perf.data
+perf.data.old
+
+# --- disposable spikes ----------------------------------------------------
+# scratch/ holds de-risking programs and their compiled binaries. The binaries
+# are ignored; spike1.c is kept because docs/SPEC.md and docs/CHALLENGES.md
+# cite it as the evidence that disqualified dladdr and exposed inlining.
+# Rebuild the ELF/dladdr spike with:
+#   gcc -O1 -g -fno-omit-frame-pointer -rdynamic scratch/spike1.c -o scratch/spike1
+scratch/*
+!scratch/spike1.c
+
+# --- Python (analysis half, tasks 5-9) ------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# --- editor / OS junk -----------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

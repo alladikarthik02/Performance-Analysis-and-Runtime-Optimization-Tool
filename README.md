@@ -227,3 +227,7 @@ Dockerfile         Ubuntu 24.04 + toolchain, gdb, valgrind, binutils
 - **`docs/CHALLENGE_LOG.md`** — every bug hit during the build in plain English:
   symptom, hypotheses (including the wrong ones), root cause, fix, and what it
   generalizes to.
+
+## License
+
+MIT — see [`LICENSE`](LICENSE).
